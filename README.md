@@ -45,4 +45,11 @@ The expected output is a `.txt` file for each model with all the generated seque
 
 # Evaluate the models
 Use the code provided in the folder `evaluation`. The codes require the `.fasta` files created in the previous step.
-- To plot the average physiochemical values you need to first run the `[CAMPR4 server] (https://camp.bicnirrh.res.in/predict/)` and select the peptides with $$\( P(\text{AMP}) \geq 0.8 \)$$.
+- To plot the average physiochemical values you need to first run the `[CAMPR4 server] (https://camp.bicnirrh.res.in/predict/)` and select the peptides with $\( P(\text{AMP}) \geq 0.8 \)$.
+
+# Reproduce the paper's results
+To reproduce the figures and results presented in the paper, please download the necessary files from `[Google Drive] (https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing)`
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
