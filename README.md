@@ -25,7 +25,7 @@ To do so, run:
 - kmers-based classifer: `train_kmers_classifier.py`
 - ESM2-based classifier: `train_MLP_classifier.py`
   
-To run `train_MLP_classifier.py` first download `mean_embeddings_esm2_t12.csv` from [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing). The expected output for the kmers-based and ESM2-based classifiers is the best model saved in a `.pth` format. The best model for FBGAN classifier should be stored in `checkpoint_FBGAN_classifier` folder. 
+To run `train_MLP_classifier.py` first download `mean_embeddings_esm2_t12.csv` from [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing). The expected output for the kmers-based and ESM2-based classifiers is the best model saved in a `.pth` format. The best model for FBGAN classifier should be stored in `checkpoint_FBGAN_classifier` folder. You can find the pre-trained classifiers utilized in this work on the [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing).
 
 # Train the generative models
 For each model run the following:
@@ -33,7 +33,7 @@ For each model run the following:
 - FBGAN-kmers: `wgan_gp_lang_gene_FBGAN_kmers.py`
 - FBGAN-ESM2: `wgan_gp_lang_gene_FBGAN_ESM2.py`
   
-The expected output is a folder with checkpoints for each model.
+The expected output is a folder with checkpoints for each model. The optimal checkpoints utilized in this work for each model are provided on [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing).
 
 # Generate and select valid peptides
 First, select the optimal model from the previous checkpoints based on the loss plots. Save them in a folder named `checkpoint_MODEL` where MODEL = {FBGAN, FBGAN-kmers, FBGAN-ESM2} and run:
@@ -48,7 +48,7 @@ Use the code provided in the folder `evaluation`. The codes require the `.fasta`
 - To plot the average physiochemical values you need to first run the [CAMPR4 server](https://camp.bicnirrh.res.in/predict/) and select the peptides with $P(\text{AMP}) \geq 0.8$.
 
 # Reproduce the paper's results
-To reproduce the figures and results presented in the paper, please download the necessary files from [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing), add them to the `evaluation` folder and run each Python script.
+* To reproduce the figures and results presented in the paper, please download the necessary files in `generated_peptides` folder from [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing), extract them into the `evaluation` folder and run each Python script.
 
 ## License
 
