@@ -25,7 +25,7 @@ To do so, run:
 - FBGAN-kmers: `train_kmers_classifier.py`
 - FBGAN-ESM2: `train_MLP_classifier.py`
   
-The expected output is the best model saved in a `.pth` format.  
+To run `train_MLP_classifier.py` you will first need to download `mean_embeddings_esm2_t12.csv` from [Google Drive](https://drive.google.com/drive/folders/1ZqWM7aBK1EmOc13uP7a4D03Llztb7uvO?usp=sharing). The expected output is the best model saved in a `.pth` format.  
 
 # Train the generative models
 For each model run the following:
