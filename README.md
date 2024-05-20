@@ -12,6 +12,7 @@ within the FBGAN framework, enhancing its computational robustness for AMP de no
 making it comparable to existing literature.
 
 ## Install the dependencies
+The code is tested under Windows running python 3.8. All required packages are enclosed in `requirements.txt`. Run:
 ```bash
 pip install -r requirements.txt
 ```
