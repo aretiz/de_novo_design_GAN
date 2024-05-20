@@ -53,7 +53,7 @@ Use the code provided in the folder `evaluation`. The codes require the `.fasta`
 ## Citation
 If you use this code or data in your research, please cite our paper:
 
-Zervou, M. A., Doutsi, E., Pantazis, Y., & Tsakalides, P. (2024). "De Novo Antimicrobial Peptide Design with Feedback Generative Adversarial Networks." International Journal of Molecular Sciences. DOI: 10.3390/ijms25105506
+Zervou, M.A.; Doutsi, E.; Pantazis, Y.; Tsakalides, P. De Novo Antimicrobial Peptide Design with Feedback Generative Adversarial Networks. Int. J. Mol. Sci. 2024, 25, 5506. https://doi.org/10.3390/ijms25105506
 
 BibTeX:
 ```bibtex
@@ -68,9 +68,8 @@ ARTICLE-NUMBER = {5506},
 URL = {https://www.mdpi.com/1422-0067/25/10/5506},
 ISSN = {1422-0067},
 ABSTRACT = {Antimicrobial peptides (AMPs) are promising candidates for new antibiotics due to their broad-spectrum activity against pathogens and reduced susceptibility to resistance development. Deep-learning techniques, such as deep generative models, offer a promising avenue to expedite the discovery and optimization of AMPs. A remarkable example is the Feedback Generative Adversarial Network (FBGAN), a deep generative model that incorporates a classifier during its training phase. Our study aims to explore the impact of enhanced classifiers on the generative capabilities of FBGAN. To this end, we introduce two alternative classifiers for the FBGAN framework, both surpassing the accuracy of the original classifier. The first classifier utilizes the k-mers technique, while the second applies transfer learning from the large protein language model Evolutionary Scale Modeling 2 (ESM2). Integrating these classifiers into FBGAN not only yields notable performance enhancements compared to the original FBGAN but also enables the proposed generative models to achieve comparable or even superior performance to established methods such as AMPGAN and HydrAMP. This achievement underscores the effectiveness of leveraging advanced classifiers within the FBGAN framework, enhancing its computational robustness for AMP de novo design and making it comparable to existing literature.},
-DOI = {10.3390/ijms25105506}
-}
+DOI = {10.3390/ijms25105506}}
+
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
