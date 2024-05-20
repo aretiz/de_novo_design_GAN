@@ -11,7 +11,13 @@ and HydrAMP. This achievement underscores the effectiveness of leveraging advanc
 within the FBGAN framework, enhancing its computational robustness for AMP de novo design and
 making it comparable to existing literature.
 
-## System Requirements and Installation
+## Install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
+## Peptide generation
+To run this project, follow these steps:
+- Step A: `Train the classifiers.`
+  
+- Step B: `Description of step B.`
+- Step C: `Description of step C.`
