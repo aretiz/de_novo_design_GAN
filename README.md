@@ -18,7 +18,27 @@ pip install -r requirements.txt
 ```
 ## Peptide generation
 To run this project, follow these steps:
-- Step A: `Train the classifiers.`
-  
-- Step B: `Description of step B.`
-- Step C: `Description of step C.`
+
+# Train the classifiers and save the best model
+To do so, run:  
+- FBGAN: `amp_predictor_pytorch.py`
+- FBGAN-kmers: `train_kmers_classifier.py`
+- FBGAN-ESM2: `train_MLP_classifier.py`
+The expected output is the best model saved in a `.pth` format.  
+
+# Train the generative models
+For each model run the following:
+- FBGAN: `wgan_gp_lang_gene_analyzer_FBGAN.py`
+- FBGAN-kmers: `wgan_gp_lang_gene_FBGAN_kmers.py`
+- FBGAN-ESM2: `wgan_gp_lang_gene_FBGAN_ESM2.py`
+The expected output is the folder with checkpoints for each model.
+
+# Generate and select valid peptides
+First run:
+- FBGAN: `generate_samples_FBGAN.py`
+- FBGAN-kmers: `generate_samples_FBGAN_kmers.py`
+- FBGAN-ESM2: `generate_samples_FBGAN_ESM2.py`
+The expected output is a `.rxt` file with all the generated sequences. Run `select_valid_peptides.py` to select valid peptides.
+
+
+
