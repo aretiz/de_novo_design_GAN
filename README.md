@@ -24,6 +24,7 @@ To do so, run:
 - FBGAN: `amp_predictor_pytorch.py`
 - FBGAN-kmers: `train_kmers_classifier.py`
 - FBGAN-ESM2: `train_MLP_classifier.py`
+  
 The expected output is the best model saved in a `.pth` format.  
 
 # Train the generative models
@@ -31,6 +32,7 @@ For each model run the following:
 - FBGAN: `wgan_gp_lang_gene_analyzer_FBGAN.py`
 - FBGAN-kmers: `wgan_gp_lang_gene_FBGAN_kmers.py`
 - FBGAN-ESM2: `wgan_gp_lang_gene_FBGAN_ESM2.py`
+  
 The expected output is the folder with checkpoints for each model.
 
 # Generate and select valid peptides
@@ -38,6 +40,7 @@ First run:
 - FBGAN: `generate_samples_FBGAN.py`
 - FBGAN-kmers: `generate_samples_FBGAN_kmers.py`
 - FBGAN-ESM2: `generate_samples_FBGAN_ESM2.py`
+  
 The expected output is a `.txt` file for each model with all the generated sequences. Then,  for each output run `select_valid_peptides.py` to create a `.fasta` file that contains validly generated peptides.
 
 # Evaluate the models
