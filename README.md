@@ -55,7 +55,6 @@ If you use this code or data in your research, please cite our paper:
 
 Zervou, M.A.; Doutsi, E.; Pantazis, Y.; Tsakalides, P. De Novo Antimicrobial Peptide Design with Feedback Generative Adversarial Networks. Int. J. Mol. Sci. 2024, 25, 5506. https://doi.org/10.3390/ijms25105506
 
-BibTeX:
 ```bibtex
 @Article{ijms25105506,
 AUTHOR = {Zervou, Michaela Areti and Doutsi, Effrosyni and Pantazis, Yannis and Tsakalides, Panagiotis},
