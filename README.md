@@ -38,7 +38,7 @@ First run:
 - FBGAN: `generate_samples_FBGAN.py`
 - FBGAN-kmers: `generate_samples_FBGAN_kmers.py`
 - FBGAN-ESM2: `generate_samples_FBGAN_ESM2.py`
-The expected output is a `.rxt` file with all the generated sequences. Run `select_valid_peptides.py` to select valid peptides.
+The expected output is a `.txt` file for each model with all the generated sequences. Then,  for each output run `select_valid_peptides.py` to create a `.fasta` file that contains validly generated peptides.
 
-
+# Evaluate the models
 
