@@ -131,9 +131,9 @@ class WGAN_LangGP():
         d_fake_losses, d_real_losses, grad_penalties = [],[],[]
         G_losses, D_losses, W_dist = [],[],[]
 
-        one = torch.tensor(1.0) #torch.FloatTensor([1])
+        one = torch.tensor(1.0) 
         one = one.cuda() if self.use_cuda else one
-        one_neg = torch.tensor(-1) #one * -1
+        one_neg = torch.tensor(-1) 
 
         table = np.arange(len(self.charmap)).reshape(-1, 1)
         one_hot = OneHotEncoder()
