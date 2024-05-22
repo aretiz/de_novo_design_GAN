@@ -173,14 +173,12 @@ class WGAN_LangGP():
 
             with open(self.sample_dir + "sampled_{}_preds.txt".format(epoch), 'w+') as f:
                 for j, seq in enumerate(sampled_seqs):
-                    modified_seq = re.sub(r'P', '', seq) #re.sub(r'P*$', '', seq)
+                    modified_seq = re.sub(r'P', '', seq) 
                     condition_met = (
-                        # re.match(r'^[^P]*P*$', seq)
                         len(modified_seq) >= 15
                         and len(modified_seq) % 3 == 0
                         and self.translate_dna_to_protein(modified_seq, translation_table).startswith('M')
                         and self.translate_dna_to_protein(modified_seq, translation_table).endswith('_')
-                        # and self.translate_dna_to_protein(modified_seq, translation_table).count('_') == 1
                     )
                     if condition_met:
                         f.write(seq + '\t' + str(preds[j][0]) + '\n')
@@ -245,7 +243,7 @@ class WGAN_LangGP():
                 z_input = to_var(torch.randn(self.batch_size, 128))
                 g_fake_data = self.G(z_input)
                 dg_fake_pred = self.D(g_fake_data)
-                g_err = -torch.mean(dg_fake_pred) #/2.53 - 0.2 * torch.mean(torch.from_numpy(preds))
+                g_err = -torch.mean(dg_fake_pred)
                 g_err.backward()
                 self.G_optimizer.step()
                 G_losses.append((g_err.data).cpu().numpy())
