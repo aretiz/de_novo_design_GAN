@@ -149,9 +149,9 @@ class WGAN_LangGP():
         d_fake_losses, d_real_losses, grad_penalties = [],[],[]
         G_losses, D_losses, W_dist = [],[],[]
 
-        one = torch.tensor(1.0) #torch.FloatTensor([1])
+        one = torch.tensor(1.0) 
         one = one.cuda() if self.use_cuda else one
-        one_neg = torch.tensor(-1) #one * -1
+        one_neg = torch.tensor(-1) 
 
         table = np.arange(len(self.charmap)).reshape(-1, 1)
         one_hot = OneHotEncoder()
@@ -188,18 +188,15 @@ class WGAN_LangGP():
             if epoch % 2 == 0: self.save_model(epoch)
             sampled_seqs = self.sample(num_batches_sample, epoch)
             preds = self.analyzer.predict_model(sampled_seqs)
-            # with open(self.sample_dir + "sampled_{}_preds.txt".format(epoch), 'w+') as f:
-            #     f.writelines([s + '\t' + str(preds[j][0]) + '\n' for j, s in enumerate(sampled_seqs)])
+
             with open(self.sample_dir + "sampled_{}_preds.txt".format(epoch), 'w+') as f:
                 for j, seq in enumerate(sampled_seqs):
-                    modified_seq = re.sub(r'P', '', seq) #re.sub(r'P*$', '', seq)
+                    modified_seq = re.sub(r'P', '', seq) 
                     condition_met = (
-                        # re.match(r'^[^P]*P*$', seq)
                         len(modified_seq) >= 15
                         and len(modified_seq) % 3 == 0
                         and self.translate_dna_to_protein(modified_seq, translation_table).startswith('M')
                         and self.translate_dna_to_protein(modified_seq, translation_table).endswith('_')
-                        # and self.translate_dna_to_protein(modified_seq, translation_table).count('_') == 1
                     )
                     if condition_met:
                         f.write(seq + '\t' + str(preds[j][0]) + '\n')
