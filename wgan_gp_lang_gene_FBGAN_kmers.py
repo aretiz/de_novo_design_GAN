@@ -48,9 +48,6 @@ class WGAN_LangGP():
         self.G_optimizer = optim.Adam(self.G.parameters(), lr=self.lr, betas=(0.5, 0.9))
         self.D_optimizer = optim.Adam(self.D.parameters(), lr=self.lr, betas=(0.5, 0.9))
         self.analyzer = kmersClassifier()
-        # self.analyzer = ACPClassifier() #from PYTORCH
-        # val_loss, val_acc = self.analyzer.evaluate_model()
-        # print("Val Acc:{}".format(val_acc))
 
     def load_data(self, datadir, max_examples=1e6):
         self.data, self.charmap, self.inv_charmap = utils.language_helpers.load_dataset(
@@ -135,9 +132,9 @@ class WGAN_LangGP():
         d_fake_losses, d_real_losses, grad_penalties = [],[],[]
         G_losses, D_losses, W_dist = [],[],[]
 
-        one = torch.tensor(1.0) #torch.FloatTensor([1])
+        one = torch.tensor(1.0) 
         one = one.cuda() if self.use_cuda else one
-        one_neg = torch.tensor(-1) #one * -1
+        one_neg = torch.tensor(-1) 
 
         table = np.arange(len(self.charmap)).reshape(-1, 1)
         one_hot = OneHotEncoder()
@@ -173,20 +170,15 @@ class WGAN_LangGP():
         for epoch in range(1, self.n_epochs+1):
             if epoch % 2 == 0: self.save_model(epoch)
             sampled_seqs = self.sample(num_batches_sample, epoch)
-            # preds = self.analyzer.predict_model(sampled_seqs)
-            # with open(self.sample_dir + "sampled_{}_preds.txt".format(epoch), 'w+') as f:
-            #     f.writelines([s + '\t' + str(preds[j][0]) + '\n' for j, s in enumerate(sampled_seqs)])
             with open(self.sample_dir + "sampled_{}_preds.txt".format(epoch), 'w+') as f:
                 preds = np.array([])
                 for j, seq in enumerate(sampled_seqs):
-                    modified_seq = re.sub(r'P', '', seq) #re.sub(r'P*$', '', seq)
+                    modified_seq = re.sub(r'P', '', seq) 
                     condition_met = (
-                        # re.match(r'^[^P]*P*$', seq)
                         len(modified_seq) >= 15
                         and len(modified_seq) % 3 == 0
                         and self.translate_dna_to_protein(modified_seq, translation_table).startswith('M')
                         and self.translate_dna_to_protein(modified_seq, translation_table).endswith('_')
-                        # and self.translate_dna_to_protein(modified_seq, translation_table).count('_') == 1
                     )
                     if condition_met:
                         pred = self.analyzer.predict_model(modified_seq)
@@ -196,8 +188,7 @@ class WGAN_LangGP():
                     else:
                         f.write(seq + '\t' + str(0.0) + '\n')
                         preds = np.append(preds, 0.0)
-                    # preds.extend(pred)
-
+                   
             good_indices = (preds > self.preds_cutoff).nonzero()[0]
             pos_seqs = [list(sampled_seqs[i]) for i in good_indices]
             print("Adding {} positive sequences".format(len(pos_seqs)))
